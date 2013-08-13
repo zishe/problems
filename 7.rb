@@ -1,12 +1,19 @@
-x = 1
-num = 0
+x = 2
+num = 1
 while num < 10001
   x += 1
-  dev = 0
-  for y in (1..x - 1)
-    dev += 1 if x % y == 0
-    break if dev > 1
+  prime = true
+  for y in (2..Math.sqrt(x) + 1)
+    if x % y == 0
+      prime = false
+      break
+    end
   end
-  num += 1 if dev < 2
+  num += 1 if prime
 end
 puts x
+
+# require 'mathn'
+# primes = Prime.new
+# 10_000.times { primes.next }
+# puts "Prime is #{ primes.next }."
