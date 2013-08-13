@@ -33,7 +33,7 @@ end
 
 # primes.each { |p| p p }
 res = primes.flat_map {|i| i }.uniq.inject(:*)
-puts res
+# puts res
 
 # p max_counts
 max_counts.each do |k, v|
@@ -41,4 +41,22 @@ max_counts.each do |k, v|
   # p res
 end
 p res
+
+# Using lib
+require 'rational'
+p (1..20).inject(1) { |result, n| result.lcm n }
+
+
+i = 1
+(1..21).each do |k|
+  if i % k > 0
+    (1..21).each do |j|
+      if (i*j) % k == 0
+        i *= j
+        break
+      end
+    end
+  end
+end
+p i
 
