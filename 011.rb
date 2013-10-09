@@ -20,33 +20,11 @@ s = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
 
 i = s.split(' ').map(&:to_i)
-# p i
+
 a = Hash.new
 (0..399).each do |x|
   a[[x/20, x%20]] = i[x]
 end
-# p a
-
-# m = 0
-
-# 0.upto(19).each do |x|
-#   0.upto(16).each do |y|
-#     m = [m, a[[x,y]]*a[[x,y+1]]*a[[x,y+2]]*a[[x,y+3]]].max
-#   end
-# end
-# 0.upto(16).each { |x| 0.upto(19).each { |y|
-#     m = [m, a[[x,y]]*a[[x+1,y]]*a[[x+2,y]]*a[[x+3,y]]].max
-#   }
-# }
-# 0.upto(16).each { |x| 0.upto(16).each { |y|
-#     m = [m, a[[x,y]]*a[[x+1,y+1]]*a[[x+2,y+2]]*a[[x+3,y+3]]].max
-#   }
-# }
-# 3.upto(19).each { |x| 0.upto(16).each { |y|
-#     m = [m, a[[x,y]]*a[[x-1,y+1]]*a[[x-2,y+2]]*a[[x-3,y+3]]].max
-#   }
-# }
-# p m # 70600674
 
 m = 0 # maximum
 d = [[0,1], [1,0], [1,1], [-1,1]] # offset
