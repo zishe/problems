@@ -21,6 +21,7 @@ s = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 
 i = s.split(' ').map(&:to_i)
 
+# Creating Two-Dimensional Array
 a = Hash.new
 (0..399).each do |x|
   a[[x/20, x%20]] = i[x]
@@ -32,9 +33,11 @@ d.each do |n|
   (0..19).each do |x|
     (0..19).each do |y|
       prod = 1
-      (0..3).each do |s|
-        new_x = x+s*n[0]
-        new_y = y+s*n[1]
+      # make 4 steps in each direction
+      (0..3).each do |z|
+        new_x = x+z*n[0]
+        new_y = y+z*n[1]
+        # check borders of array
         if new_x >= 0 && new_y >=0 && new_x < 20 && new_y < 20
           prod *= a[[new_x, new_y]]
         end
