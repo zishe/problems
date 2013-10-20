@@ -15,3 +15,6 @@ sum = Prime.instance.inject(0) { |sum, n|
 }
 puts "Finished at #{(Time.now - started)}."
 puts "Sum is #{sum}."
+
+# rbx-2.0.0              Finished at 3.659708.
+# ruby-2.0.0-p247        Finished at 4.056576
