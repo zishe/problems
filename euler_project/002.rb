@@ -1,10 +1,9 @@
-p1 = 1
-p2 = 1
-sum = 0
-while p2 <= 4000000
-  sum += p2 if p2 % 2 == 0
-  p0 = p1
-  p1 = p2
-  p2 = p0 + p1
+fib = Enumerator.new do |y|
+  i, j = 0, 1
+  loop do
+    i, j = j, i + j
+    y.yield i
+  end
 end
-puts sum
+
+p fib.take_while { |n| n <= 4E6 }.select(&:even?).inject(:+)

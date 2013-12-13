@@ -1,8 +1,5 @@
-nums = []
-(10..99).each { |x|
-  (10..99).each { |y|
-    nums << [x,y] if y.to_f/x == (y%10).to_f/(x/10) and x.to_f/y < 1 and x%10 == y/10
-  }
-}
-p nums
-p nums.map { |x| x[0].to_f/x[1] }.inject(:*).round(10)
+p (10..99).each_with_object([]) { |x, s|
+    (10..99).each { |y|
+      s << Rational(x, y) if Rational(y, x) == Rational(y%10, x/10) and Rational(x, y) < 1 and x%10 == y/10
+    }
+  }.inject(:*).denominator
