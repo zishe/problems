@@ -1,5 +1,5 @@
 a = [1,2]
-m = 2
+
 19.times do
   r = [1]
   a.length.times do |x|
@@ -11,7 +11,7 @@ m = 2
     end
   end
   a = r
-  p r
+  # p r
 end
 
-p (1..40).inject(:*)/(((1..20).inject(:*))**2)
+p (1..40).reduce(:*)/(((1..20).reduce(:*))**2)

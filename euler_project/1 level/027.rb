@@ -1,6 +1,6 @@
 require 'prime'
 
-def find_prime_cons a, b
+def find_prime_cons(a, b)
   go = true
   n = 0
   while go
@@ -12,13 +12,13 @@ end
 
 l_max = 0
 prod = 0
-for i in (-999...1000)
-  for j in (-999...1000)
+(-999...1000).each { |i|
+  (-999...1000).each { |j|
     r = find_prime_cons(i, j)
     if r > l_max
       l_max = r
       prod = i*j
     end
-  end
-end
+  }
+}
 p l_max, prod

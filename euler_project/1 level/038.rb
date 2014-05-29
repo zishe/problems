@@ -1,4 +1,4 @@
-def to_pan n, m
+def to_pan(n, m)
   (1..m).map { |i| (i*n).to_s }.inject(:+)
 end
 p (1000...10000).select { |i|

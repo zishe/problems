@@ -1,4 +1,4 @@
-def pentagonal? n
+def pentagonal?(n)
   r = (Math.sqrt(1+24*n)+1)/6
   r.to_i == r
 end

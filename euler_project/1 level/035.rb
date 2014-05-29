@@ -1,6 +1,6 @@
 require 'mathn'
 
-def rotate x
+def rotate(x)
   z = x.to_s.split(//)
   (0..(x.to_s.size-1)).map { |n| z.rotate(n).join.to_i }
 end

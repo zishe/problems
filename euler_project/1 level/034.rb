@@ -1,5 +1,5 @@
 m = (1..10).inject(:*)
-def factorial n
+def factorial(n)
   n > 1 ? n * factorial(n - 1) : 1
 end
 facs = (0..9).map{|n| factorial(n)}

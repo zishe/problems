@@ -1,4 +1,4 @@
-a, b, s, n = 1, 1, 0, 2
+a, b, n = 1, 1, 2
 digits = 1
 while digits < 1000
   s = a+b

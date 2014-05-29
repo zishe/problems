@@ -1,4 +1,4 @@
-def is_pal? x
+def is_pal?(x)
   x.to_s.split(//).reverse.join == x
 end
 p (1...1000000).select { |x|

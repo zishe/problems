@@ -1,10 +1,10 @@
 class Integer
-  def factors()
-    1.upto(Math.sqrt(self)).select {|i| (self % i).zero?}.inject([]) do |f, i|
+  def factors
+    (1..Math.sqrt(self)).select { |i| (self % i).zero? }.inject([]) { |f, i|
       f << i
       f << self/i unless i == self/i
       f
-    end.sort
+    }.sort
   end
 end
 
@@ -21,6 +21,4 @@ def m
   s
 end
 
-start_time = Time.now
 p m
-p Time.now - start_time

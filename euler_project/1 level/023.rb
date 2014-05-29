@@ -1,12 +1,12 @@
 # can be speed up with collecting abundants and repeating
 # from maximum abundant number
 
-def divisors x
-  (2..Math.sqrt(x) + 1).select { |i| x % i == 0 }.map{ |n| [n, x/n] }.flatten.uniq.sort
+def divisors(x)
+  (2..Math.sqrt(x) + 1).select { |i| x % i == 0 }.map { |n| [n, x/n] }.flatten.uniq.sort
 end
 
-def is_sum_of_2_abundant? all, n
-  (12..(n/2 + 1)).each  do |m|
+def is_sum_of_2_abundant?(all, n)
+  (12..(n/2 + 1)).each do |m|
     dm = all[m]
     # puts "#{n}   #{m}   #{dm.inspect}"
     if not dm.empty? and dm.inject(:+) > m
