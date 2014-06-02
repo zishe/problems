@@ -1,11 +1,15 @@
 r = 0
-(100..999).each do |x|
-  (100..999).each do |y|
+(100...1000).each do |x|
+  (x...1000).each do |y|
     p = x * y
-    if p.to_s == p.to_s.reverse
-      r = p if p > r
+    s = p.to_s
+    if s == s.reverse
+      r = [r, p].max
       # puts "found #{p} = #{x} * #{y}"
     end
   end
 end
 p r
+
+# 2
+p (100..999).to_a.combination(2).map {|x, y| x * y }.select { |p| s = p.to_s; s == s.reverse }.max
