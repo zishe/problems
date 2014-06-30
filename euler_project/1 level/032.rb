@@ -1,10 +1,5 @@
-pds = []
-(1..100).each { |x|
-  from = 10**(4 - x.to_s.length)
-  to = 10**(5 - x.to_s.length)
-  (from...to).each { |y|
-    z = x*y
-    pds << [x,y,z] if (x.to_s + y.to_s + z.to_s).split(//).sort.join == '123456789'
+p (2..100).each_with_object([]) { |x, s|
+  (1000/x...10000/x).each { |y|
+    s << [x,y,x*y] if [x,y,x*y].map(&:to_s).reduce(:+).chars.sort.join == '123456789'
   }
-}
-p pds.map{ |i| i[2] }.uniq.inject(:+)
+}.map(&:last).uniq.reduce(:+)
