@@ -1,16 +1,11 @@
 require 'prime'
 
-def len(n)
+def period_length(n)
   x = 1
-  (2..n).each { |i|
+  (2..Float::INFINITY).detect { |i|
     x = x * 10 % n
-    break if x == 1 || x == 0
+    [0, 1].include? x
   }
-  i
 end
 
-r = []
-Prime.each(10000).each do |n|
-  r << len(n)
-end
-p r.max
+p Prime.each(1000).map { |n| period_length n }.max

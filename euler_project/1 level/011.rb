@@ -19,33 +19,26 @@ s = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
 
-i = s.split(' ').map(&:to_i)
-
-# Creating Two-Dimensional Array
-a = Hash.new
-(0..399).each do |x|
-  a[[x/20, x%20]] = i[x]
-end
+a = s.split(/\n/).each_with_object([]) { |l, o| o << l.split.map(&:to_i) }
 
 m = 0 # maximum
 d = [[0,1], [1,0], [1,1], [-1,1]] # offset
 d.each do |n|
-  (0..19).each do |x|
-    (0..19).each do |y|
-      prod = 1
+  (0...20).each do |x|
+    (0...20).each_with_object(1) do |y, prod|
       # make 4 steps in each direction
       (0..3).each do |z|
-        new_x = x+z*n[0]
-        new_y = y+z*n[1]
+        new_x = x + z * n[0]
+        new_y = y + z * n[1]
         # check borders of array
         if new_x >= 0 && new_y >=0 && new_x < 20 && new_y < 20
-          prod *= a[[new_x, new_y]]
+          prod *= a[new_x][new_y]
         end
       end
       m = [m, prod].max
     end
   end
 end
-p m
 
-# 70600674
+p m
+# => 70600674

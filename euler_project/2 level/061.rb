@@ -21,9 +21,9 @@ def is_cyclic(a, b)
   a % 100 == b / 100
 end
 
-arr1 = poligones.map { |x| polygonal(x).take_while { |y| y < 10_000 }.drop_while { |y| y < 1000 } }.permutation.to_a
+nums = poligones.map { |x| polygonal(x).take_while { |y| y < 10_000 }.drop_while { |y| y < 1000 } }.permutation.to_a
 r = []
-arr1.each { |arr|
+p nums.each_with_object([]) { |arr, r|
   arr[0].each { |y|
     l = [y]
     if (1..6).all? { |i|
@@ -33,9 +33,9 @@ arr1.each { |arr|
       l << res.last if res.size > 0
       res.size > 0
     }
-      # p l
-      r << l[0..-2]
+    r << l[0..-2]
     end
   }
-}
-p r.map(&:sort).uniq.first.reduce(:+)
+}.map(&:sort).uniq.first.reduce(:+)
+
+# => 28684

@@ -24,7 +24,6 @@ def to_word num
   all
 end
 
-# (1..1000).map { |n| p to_word(n)}
 p (1..1000).map { |n| to_word(n).size }.inject(:+)
 
 def another
@@ -56,3 +55,4 @@ def another_one
 end
 p another_one
 
+# => 21124

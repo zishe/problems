@@ -1,7 +1,3 @@
-a = Hash.new(0)
-(1...500).each { |x|
-  (1...500).each { |y|
-    a[(x*y).to_f/2] += 1 if x*y/2 < 1000
-  }
-}
-p a.max_by {|_, j| j }[0].to_i
+p (1...500).to_a.combination(2).each_with_object(Hash.new(0)) { |(x, y), a|
+  a[(x*y)/2.0] += 1 if x*y/2 < 1000
+}.max_by {|_, j| j }.first.to_i

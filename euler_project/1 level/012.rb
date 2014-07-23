@@ -1,6 +1,6 @@
 class Integer
   def factors
-    (1..Math.sqrt(self)).select { |i| (self % i).zero? }.inject([]) { |f, i|
+    (1..Math.sqrt(self)).select { |i| self % i == 0 }.inject([]) { |f, i|
       f << i
       f << self/i unless i == self/i
       f
@@ -8,17 +8,7 @@ class Integer
   end
 end
 
-def m
-  stop = true
-  n = 1
-  s = 0
-  while stop
-    s+=n
-    d = s.factors()
-    stop = false if d.length > 500
-    n+=1
-  end
-  s
-end
-
-p m
+s = 0
+(1..Float::INFINITY).detect { |x| s += x; s.factors.length > 500 }
+p s
+# => 76576500

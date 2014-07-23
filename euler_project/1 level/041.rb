@@ -1,14 +1,9 @@
 require 'mathn'
 
-a = 0
-(2..7).each { |n|
-  (1..n).to_a.permutation.to_a.map { |x|
-      x.map(&:to_s).join.to_i
-    }.sort.reverse.each { |x|
-    if Prime.prime?(x)
-      a = [x, a].max
-      break
-    end
-  }
-}
-p a
+p (2..7).each_with_object([]) { |n, b|
+  b << (1..n).to_a.permutation.to_a.map { |x|
+    x.map(&:to_s).join.to_i
+  }.sort.reverse.detect { |x| Prime.prime?(x) }
+}.compact.sort.last
+
+# => 7652413

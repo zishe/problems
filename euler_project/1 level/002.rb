@@ -1,9 +1,4 @@
-fib = Enumerator.new do |y|
-  i, j = 0, 1
-  loop do
-    i, j = j, i + j
-    y.yield i
-  end
-end
+require '../fib'
 
-p fib.take_while { |n| n <= 4E6 }.select(&:even?).inject(:+)
+p Fibo.enum.take_while { |n| n <= 4000 }.select(&:even?).inject(:+)
+# => 4613732

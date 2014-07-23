@@ -2,24 +2,24 @@ s = [79,59,12,2,79,35,8,28,20,2,3,68,8,9,68,45,0,12,9,67,68,4,7,5,23,27,1,21,79,
 # p s.map { |x| x.chr }.join.unpack('C*')
 
 ('a'..'z').each { |x|
-    ('a'..'z').each { |y|
-      ('a'..'z').each { |z|
-        ns = []
-        n = 1
-        (0...(s.size)).each { |i|
-          ns << (s[i] ^ x.ord) if n == 1
-          ns << (s[i] ^ y.ord) if n == 2
-          ns << (s[i] ^ z.ord) if n == 3
+  ('a'..'z').each { |y|
+    ('a'..'z').each { |z|
+      ns = []
+      n = 1
+      (0...(s.size)).each { |i|
+        ns << (s[i] ^ x.ord) if n == 1
+        ns << (s[i] ^ y.ord) if n == 2
+        ns << (s[i] ^ z.ord) if n == 3
 
-          n += 1
-          n = 1 if n == 4
-        }
-        if ns.map { |x| x.chr }.join.include? ' the '
-          p ns.map { |x| x.chr }.join
-          p ns.reduce(:+)
-          p x+y+z
-          break
-        end
+        n += 1
+        n = 1 if n == 4
       }
+      if ns.map { |x| x.chr }.join.include? ' the '
+        p ns.map { |x| x.chr }.join
+        p ns.reduce(:+)
+        p x+y+z
+        break
+      end
     }
   }
+}

@@ -14,7 +14,7 @@ a = '75
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23'
 
-a = a.split(/\n/).map { |n| n.split(' ').map(&:to_i) }
+a = a.split(/\n/).map { |n| n.split.map(&:to_i) }
 
 # sum - tree path sum
 # a - tree

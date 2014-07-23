@@ -1,10 +1,5 @@
-a, b, n = 1, 1, 2
-digits = 1
-while digits < 1000
-  s = a+b
-  a = b
-  b = s
-  n += 1
-  digits = s.to_s.size
-end
-p n
+require '../fib'
+
+i = 0
+Fibo.enum.take_while { |f| i += 1; f.to_s.size < 1000 }
+p i

@@ -12,6 +12,7 @@
 # √42 = [6;2,12]
 res = 0
 ps = (2..Float::INFINITY).take_while { |x| x*x < 10000 }.map { |x| x*x }
+
 (2..Float::INFINITY).take_while { |x| x < 10000 }.map { |n|
   period, d, m = 0, 1, 0
   a = a0 = Math.sqrt(n).floor

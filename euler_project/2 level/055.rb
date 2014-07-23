@@ -1,6 +1,6 @@
 class Integer
   def pal
-    to_s.split(//).reverse.join.to_i
+    to_s.chars.reverse.join.to_i
   end
 end
 
