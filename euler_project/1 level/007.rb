@@ -4,7 +4,7 @@ p (2..Float::INFINITY).detect { |x|
 }
 
 require 'mathn'
-primes = Prime.new
+primes = Prime::EratosthenesGenerator.new
 10_000.times { primes.next }
-puts primes.next
+p primes.next
 # => 104743
